@@ -14,7 +14,7 @@ def Load_yaml(path_yaml: Path) -> ConfigBox:
     try:
         with open (path_yaml) as file:
             content=yaml.safe_load(file)
-            logger.info('safely opened yaml',path_yaml)
+            logger.info(f'safely opened yaml: {path_yaml}')
             return ConfigBox(content)
     except BoxValueError:
         raise ValueError('yaml file is empty')

@@ -1,7 +1,7 @@
 artifacts_root: artifacts
 data_ingestion:
   root_dir: artifacts/data_ingest
-  source: wine_quality.csv
-  local_files: artifacts/data_ingest/wine_quality.csv
+  source_url: wine_quality.csv
+  local_data_file: artifacts/data_ingest/wine_quality.csv
   unzip_dir: artifacts/data_ingest
 
