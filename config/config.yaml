@@ -1,6 +1,7 @@
 artifacts_root: artifacts
 data_ingestion:
   root_dir: artifacts/data_ingest
-  source: Users\Dell\Downloads\wine_quality.csv
-  local_files: artifacts/data_ingest/data.zip
+  source: wine_quality.csv
+  local_files: artifacts/data_ingest/wine_quality.csv
   unzip_dir: artifacts/data_ingest
+
