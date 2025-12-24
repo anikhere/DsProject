@@ -5,3 +5,7 @@ data_ingestion:
   local_data_file: artifacts/data_ingest/wine_quality.csv
   unzip_dir: artifacts/data_ingest
 
+data_validation: 
+  root_dir: artifacts/data_validate
+  unzip_dir: artifacts/data_ingest/wine_quality.csv
+  STATUS_FILE: artifacts/data_validate/status.txt

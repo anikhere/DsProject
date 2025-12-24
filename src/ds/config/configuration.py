@@ -1,6 +1,6 @@
 from src.ds.constants import *
 from src.ds.utlis.common import Load_yaml, create_dir
-from src.ds.entity.config_entity import DataIngestionConfig
+from src.ds.entity.config_entity import DataIngestionConfig,DataValidationConfig
 
 
 class ConfigManager:
@@ -25,5 +25,19 @@ class ConfigManager:
             unzip_dir=config.unzip_dir
         )
         return data_in_config
+    def get_data_val(self)-> DataValidationConfig:
+        config = self.config.data_validation
+        schema = self.schema.columns
+
+        create_dir([config.root_dir])
+
+        dvc = DataValidationConfig(
+            root_dir=config.root_dir,
+            STATUS_FILE=config.STATUS_FILE,
+            unzip_dir=config.unzip_dir,
+            all_schema=schema
+        )
+        return dvc
+        
         
         
