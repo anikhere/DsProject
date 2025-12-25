@@ -1,6 +1,6 @@
 from src.ds.constants import *
 from src.ds.utlis.common import Load_yaml, create_dir
-from src.ds.entity.config_entity import DataIngestionConfig,DataValidationConfig
+from src.ds.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTrans
 
 
 class ConfigManager:
@@ -39,5 +39,15 @@ class ConfigManager:
         )
         return dvc
         
+    def get_data_transform(self)-> DataTrans:
+          config = self.config.data_transform
+          create_dir([config.root_dir])
+          dtc = DataTrans(
+              root_dir=config.root_dir,
+              data_path= config.data_path
+          )
+        
+
+          return dtc
         
         
