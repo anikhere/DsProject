@@ -1,6 +1,6 @@
 from src.ds.constants import *
 from src.ds.utlis.common import Load_yaml, create_dir
-from src.ds.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTrans
+from src.ds.entity.config_entity import DataIngestionConfig,DataValidationConfig,DataTrans,main_Train
 
 
 class ConfigManager:
@@ -49,5 +49,21 @@ class ConfigManager:
         
 
           return dtc
+    def get_trainer(self) -> main_Train:
+        config=self.config.model_trainer
+        params = self.yaml.Elasticnet
+        schema = self.schema.Target
+        create_dir([config.root_dir])
+
+        trainer=main_Train(
+            root_dir=config.root_dir,
+            train_data_path=config.train_data_path,
+            test_data_path=config.test_data_path,
+            model_name=config.model_name,
+            alpha=params.alpha,
+            l1_ratio=params.l1_ratio,
+            target=schema.name
+            )
+        return trainer
         
         
